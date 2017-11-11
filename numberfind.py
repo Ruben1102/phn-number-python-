@@ -2,13 +2,14 @@ import sys
 import getopt
 import re
 from urllib.request import urlopen
+
 one_digit = range(0, 10) #All possible combinations of 1 digit  (range will be start from 0 and stop at 9 so use 10 as last number)
 two_digit = range(0, 100) #All possible combinations of 2 digits
 three_digit = range(0, 1000) #All possible combinations of 3 digits
 four_digit = range (0, 10000) #All possible combinations of 4 digits
 five_digit = range (0, 100000)
-#six_digit = range (100000, 999999)
-#seven_digit = range (1000000, 9999999)
+six_digit = range (100000, 999999)
+seven_digit = range (1000000, 9999999)
 
 def usage():
 	print("\nUsage: options are\n")
@@ -35,10 +36,22 @@ def start(v):
 	while no:
 		print ("\n[+] Geanerating sequences of number:")
 		print ("------------------------------------\n")
-		if no == 4:
-			for n in four_digit:
+		if no == 7:
+			for n in seven_digit:
 				nums.append(number + str(n).zfill(no))
 				#print(number + str(n).zfill(no))
+			break
+		elif no == 6:
+			for n in six_digit:
+				nums.append(number + str(n).zfill(no))
+			break
+		elif no == 5:
+			for n in five_digit:
+				nums.append(number + str(n).zfill(no))
+			break
+		elif no == 4:
+			for n in four_digit:
+				nums.append(number + str(n).zfill(no))
 			break
 		elif no ==3:
 			for n in three_digit:
